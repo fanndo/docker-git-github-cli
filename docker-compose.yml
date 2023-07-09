@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  git:
+    image: ubuntu
+    command: tail -f /dev/null
+    restart: always    
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: docker-git
+    volumes:
+      - ../../git-fanndo:/usr/git
+      - ./.ssh:/root/.ssh
